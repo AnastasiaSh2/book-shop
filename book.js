@@ -71,36 +71,84 @@ const books = [{
     }
   ]
 
-const rootBlock = document.querySelector('body');
-const header = document.createElement('header');
-const main = document.createElement('main');
-const sectionFirst = document.createElement('section');
-const sectionSecond = document.createElement('section');
-const footer = document.createElement('footer');
-const cartTitle = document.createElement('h2');
-const catalogTitle = document.createElement('h2');
-const cardsDiv = document.createElement('div');
-const cardsOrder = document.createElement('div');
-const hr = document.createElement('hr');
-const bookFooter = document.createElement('img');
-const buttonOrder = document.createElement('button');
-let total = document.createElement('h5');
-let counter = 0;
-
-
-let titleMain = document.createElement('h1');
-titleMain.className = 'title';
-titleMain.innerText = 'Welcome to amazing book-hop';
-
-let copyrightLink = document.createElement('a');
-copyrightLink.href = 'https://github.com/AnastasiaSh2';
-copyrightLink.innerText = 'AnastasiaSh';
-let copyrightMark = document.createElement('p');
-copyrightMark.innerText = `© 2022`;
-
-let fragmentFooter = new DocumentFragment();
-fragmentFooter.appendChild(copyright);
-copyright.appendChild(copyrightText);
-copyright.appendChild(copyrightLink);
-copyright.appendChild(copyrightMark);
-footer.appendChild(fragmentFooter);
+  const rootBlock = document.querySelector('body');
+  const header = document.createElement('header');
+  const main = document.createElement('main');
+  const sectionFirst = document.createElement('section');
+  const sectionSecond = document.createElement('section');
+  const footer = document.createElement('footer');
+  const cartTitle = document.createElement('h2');
+  const catalogTitle = document.createElement('h2');
+  const cardsDiv = document.createElement('div');
+  const cardsOrder = document.createElement('div');
+  const hr = document.createElement('hr');
+  const bookFooter = document.createElement('img');
+  const buttonOrder = document.createElement('button');
+  let total = document.createElement('h5');
+  let counter = 0;
+  
+  let fragmentBody = new DocumentFragment();
+  fragmentBody.appendChild(header);
+  fragmentBody.appendChild(main);
+  main.append(sectionSecond);
+  sectionSecond.append(cartTitle);
+  sectionSecond.appendChild(cardsOrder);
+  sectionSecond.appendChild(hr);
+  sectionSecond.appendChild(total);
+  sectionSecond.appendChild(buttonOrder);
+  sectionSecond.appendChild(bookFooter);
+  main.prepend(sectionFirst);
+  sectionFirst.append(catalogTitle);
+  sectionFirst.appendChild(cardsDiv);
+  fragmentBody.appendChild(footer);
+  rootBlock.appendChild(fragmentBody);
+  
+  header.classList.add('header');
+  main.className = 'main main-page';
+  footer.classList.add('footer');
+  sectionFirst.className = "section section__catalog";
+  sectionSecond.className = "section section__order";
+  cartTitle.className = 'cart-title';
+  cartTitle.innerHTML = 'Your order';
+  catalogTitle.className = 'cart-title';
+  catalogTitle.innerHTML = 'Catalog';
+  cardsDiv.className = 'cards';
+  cardsOrder.className = 'cards';
+  hr.className = 'hr';
+  buttonOrder.className = 'order__button cursor-pointer user-select';
+  buttonOrder.innerText = 'Add card';
+  
+  let headerContainer = document.createElement('div');
+  headerContainer.className = 'container header__container header__main-page';
+  let titleMain = document.createElement('h1');
+  titleMain.className = 'title';
+  titleMain.innerText = 'Welcome to amazing book-hop';
+  let logoMain = document.createElement('div');
+logoMain.className = 'logo';
+  
+let fragmentHeader = new DocumentFragment();
+fragmentHeader.appendChild(headerContainer);
+headerContainer.appendChild(logoMain);
+logoMain.appendChild(titleMain);
+header.appendChild(fragmentHeader);
+  
+  let copyright = document.createElement('div');
+  copyright.className = 'copyright';
+  let copyrightText = document.createElement('p');
+  copyrightText.className = 'copyright__text';
+  copyrightText.innerText = `Author`;
+  let copyrightLink = document.createElement('a');
+  copyrightLink.className = 'link';
+  copyrightLink.href = 'https://github.com/AnastasiaSh2';
+  copyrightLink.innerText = 'AnastasiaSh';
+  let copyrightMark = document.createElement('p');
+  copyrightMark.className = 'copyright__text';
+  copyrightMark.innerText = `© 2022`;
+  
+  let fragmentFooter = new DocumentFragment();
+  fragmentFooter.appendChild(copyright);
+  copyright.appendChild(copyrightText);
+  copyright.appendChild(copyrightLink);
+  copyright.appendChild(copyrightMark);
+  footer.appendChild(fragmentFooter);
+  
