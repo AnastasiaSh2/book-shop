@@ -42,17 +42,15 @@
     max-width: 1200px;
   }
 body {
-    background-image: url(../img/1648076062_1-gamerwall-pro-p-stilnii-fon-dlya-teksta-krasivie-1.jpg);
+    background-image: url(../img/1616569191_2-p-fon-literatura-3.jpg);
     background-repeat: no-repeat;
     background-size: cover;
     outline: none;
-    height: 100vh;
     background-color: rgb(241, 236, 236);
     text-shadow: 0 0 3px rgb(212 69 153);
     text-align: center;
     font-family: cursive;
   }
-
   .footer {
     width: 100%;
     padding: 15px;
@@ -72,3 +70,71 @@ body {
   .footer .copyright .link {
     font-family: "Yesteryear";
   }
+  .section {
+    margin: 0 auto;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .section__catalog {
+    flex: 2;
+  }
+  .section__catalog .cart-title {
+    font-size: 48px;
+    text-align: center;
+    color: #73340c;
+    font-weight: 300;
+  }
+  .section__catalog .cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+    justify-items: center;
+    padding-top: 10px;
+    column-gap: 20px;
+    row-gap: 30px;
+  }
+  .section__catalog .cards .card {
+    width: 240px;
+    height: 390px;
+    padding: 12px 15px 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-between;
+    border: 2px solid rgba(226, 43, 153, 0.452);
+    position: relative;
+  }
+  .section__catalog .cards .card:hover {
+    scale: 1.01;
+    box-shadow: rgba(198, 144, 191, 0.598) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+  }
+  .card-img {
+    width: 160px;
+    height: 220px;
+  }
+  .section__catalog .cards .card .price-block {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    right: 4%;
+    bottom: 2%;
+  }
+  .section__catalog .cards .card .price-block .card__link {
+    width: 100px;
+    height: 30px;
+    display: flex;
+    gap: 5px;
+    align-items: center;
+    justify-content: center;
+    border-radius: 2px;
+  }
+  .section__catalog .cards .card .price-block .card__link .card-price {
+    font-weight: 500;
+    font-size: 20px;
+  }
+  .section__catalog .cards .card .price-block .card__link .card-img {
+    width: 20px;
+    height: 20px;
+  }
+  

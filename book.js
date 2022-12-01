@@ -1,75 +1,4 @@
 'use strict';
-const books = [{
-    "author": "Douglas Crockford",
-    "imageLink": "add image to your project,put link to it there",
-    "title": "JavaScript: The Good Parts: The Good Parts",
-    "price": 30,
-    "description": "With JavaScript: The Good Parts, you'll discover a beautiful, elegant, lightweight and highly expressive language that lets you create effective code, whether you're managing object libraries or just trying to get Ajax to run fast. If you develop sites or applications for the Web, this book is an absolute must"
-  },
-    {
-      "author": "David Herman",
-      "imageLink": "add image to your project,put link to it there",
-      "title": "Effective JavaScript: 68 Specific Ways to Harness the Power of JavaScript",
-      "price": 22,
-      "description": "Effective JavaScript is organized around 68 proven approaches for writing better JavaScript, backed by concrete examples. You’ll learn how to choose the right programming style for each project, manage unanticipated problems, and work more successfully with every facet of JavaScript programming from data structures to concurrency"
-    },
-    {
-      "author": "David Flanagan",
-      "imageLink": "add image to your project,put link to it there",
-      "title": "JavaScript: The Definitive Guide",
-      "price": 40,
-      "description": "This Fifth Edition is completely revised and expanded to cover JavaScript as it is used in today's Web 2.0 applications. This book is both an example-driven programmer's guide and a keep-on-your-desk reference, with new chapters that explain everything you need to know to get the most out of JavaScript"
-    },
-    {
-      "author": " Eric Elliott",
-      "imageLink": "add image to your project,put link to it there",
-      "title": "Programming JavaScript Applications",
-      "price": 19,
-      "description": "Take advantage of JavaScript’s power to build robust web-scale or enterprise applications that are easy to extend and maintain. By applying the design patterns outlined in this practical book, experienced JavaScript developers will learn how to write flexible and resilient code that’s easier—yes, easier—to work with as your code base grows."
-    },
-    {
-      "author": "Addy Osmani",
-      "imageLink": "add image to your project,put link to it there",
-      "title": "Learning JavaScript Design Patterns",
-      "price": 32,
-      "description": "With Learning JavaScript Design Patterns, you’ll learn how to write beautiful, structured, and maintainable JavaScript by applying classical and modern design patterns to the language. If you want to keep your code efficient, more manageable, and up-to-date with the latest best practices, this book is for you."
-    },
-    {
-      "author": "Boris Cherny",
-      "imageLink": "add image to your project,put link to it there",
-      "title": "Programming TypeScript",
-      "price": 28,
-      "description": "Any programmer working with a dynamically typed language will tell you how hard it is to scale to more lines of code and more engineers. That’s why Facebook, Google, and Microsoft invented gradual static type layers for their dynamically typed JavaScript and Python code. This practical book shows you how one such type layer, TypeScript, is unique among them: it makes programming fun with its powerful static type system."
-    },
-    {
-      "author": "Alex Banks, Eve Porcello",
-      "imageLink": "add image to your project,put link to it there",
-      "title": "Learning React, 2nd Edition",
-      "price": 25,
-      "description": "If you want to learn how to build efficient React applications, this is your book. Ideal for web developers and software engineers who understand how JavaScript, CSS, and HTML work in the browser, this updated edition provides best practices and patterns for writing modern React code. No prior knowledge of React or functional JavaScript is necessary."
-    },
-    {
-      "author": "Bradley Meck Alex Young and Mike Cantelon",
-      "imageLink": "add image to your project,put link to it there",
-      "title": "Node.js in Action",
-      "price": 38,
-      "description": "Node.js in Action, Second Edition is a thoroughly revised book based on the best-selling first edition. It starts at square one and guides you through all the features, techniques, and concepts you'll need to build production-quality Node applications."
-    },
-    {
-      "author": "Kyle Simpson",
-      "imageLink": "add image to your project,put link to it there",
-      "title": "You Don't Know JS Yet: Get Started",
-      "price": 26,
-      "description": "It seems like there's never been as much widespread desire before for a better way to deeply learn the fundamentals of JavaScript. But with a million blogs, books, and videos out there, just where do you START? Look no further!"
-    },
-    {
-      "author": "John Resig and Bear Bibeault",
-      "imageLink": "add image to your project,put link to it there",
-      "title": "Secrets of the JavaScript Ninja",
-      "price": 33,
-      "description": "Secrets of the Javascript Ninja takes you on a journey towards mastering modern JavaScript development in three phases: design, construction, and maintenance. Written for JavaScript developers with intermediate-level skills, this book will give you the knowledge you need to create a cross-browser JavaScript library from the ground up."
-    }
-  ]
 
   const rootBlock = document.querySelector('body');
   const header = document.createElement('header');
@@ -151,4 +80,306 @@ header.appendChild(fragmentHeader);
   copyright.appendChild(copyrightLink);
   copyright.appendChild(copyrightMark);
   footer.appendChild(fragmentFooter);
-  
+
+fetch('books.json', { mode: 'no-cors' })
+  .then(response => {
+    return response.json();
+  })
+  .then(data => {
+    data.forEach((element) => {
+      let cardDiv = document.createElement('div');
+      cardDiv.className = 'card';
+      let cardMain = document.createElement('div');
+      cardMain.className = 'card__main-block';
+      let cardTitle = document.createElement('h2');
+      cardTitle.className = 'card-title';
+      cardTitle.id = 'author';
+      let cardImg = document.createElement('img');
+      cardImg.className = 'card-img cursor-pointer';
+      cardImg.id = 'imageLink';
+      cardImg.alt = '';
+      let cardSubtitle = document.createElement('h3');
+      cardSubtitle.className = 'card-subtitle';
+      cardSubtitle.id = 'title';
+      let cardLink = document.createElement('a');
+      cardLink.className = 'card-link';
+      let linkInfo = document.createElement('h5');
+      linkInfo.className = 'link-info cursor-pointer user-select';
+      linkInfo.innerText = 'Show more';
+      linkInfo.style.textTransform = 'uppercase';
+      let priceBlock = document.createElement('div');
+      priceBlock.className = 'price-block';
+      let cardPrice = document.createElement('p');
+      cardPrice.className = 'card-price';
+      cardPrice.id = 'price';
+      let cardLinkSecond = document.createElement('a');
+      cardLinkSecond.className = 'card__link cursor-pointer user-select';
+      let cardImgSecond = document.createElement('img');
+      cardImgSecond.className = 'card-img';
+      cardImgSecond.src = '../img/2089348.png`';
+      cardImgSecond.alt = '';
+
+      let cardTextBlock = document.createElement('div');
+      cardTextBlock.className = 'card__text-block';
+
+      let fragmentBook = new DocumentFragment();
+      fragmentBook.appendChild(cardDiv);
+      cardDiv.appendChild(cardMain);
+      cardMain.appendChild(cardImg);
+      cardDiv.appendChild(cardTextBlock);
+      cardTextBlock.appendChild(cardTitle);
+      cardTextBlock.appendChild(cardSubtitle);
+      cardDiv.appendChild(cardLink);
+      cardLink.appendChild(linkInfo);
+      cardDiv.appendChild(priceBlock);
+      priceBlock.appendChild(cardLinkSecond);
+      cardLinkSecond.appendChild(cardImgSecond);
+      cardLinkSecond.appendChild(cardPrice);
+      cardsDiv.appendChild(fragmentBook);
+
+      cardTitle.innerText = element.author;
+      cardImg.src = element.imageLink;
+      cardSubtitle.innerText = element.title;
+      cardPrice.innerText = `$${element.price}`;
+
+      let cardOrder = document.createElement('div');
+      cardOrder.className = 'card';
+      let cardOrderImg = document.createElement('img');
+      cardOrderImg.className = 'card-img';
+      cardOrderImg.id = 'imageLink';
+      cardOrderImg.alt = '';
+      let cardOrderMain = document.createElement('div');
+      cardOrderMain.className = 'card__main-block';
+      let cardOrderTitle = document.createElement('h2');
+      cardOrderTitle.className = 'card-title';
+      cardOrderTitle.id = 'author';
+      let cardOrderDescription = document.createElement('h3');
+      cardOrderDescription.className = 'card-description';
+      let cardOrderPriceBlock = document.createElement('div');
+      cardOrderPriceBlock.className = 'card__price-block';
+      let cardOrderPrice = document.createElement('p');
+      cardOrderPrice.className = 'card-price';
+      let inputOrder = document.createElement('input');
+      let inputBlock = document.createElement('div');
+      inputBlock.className = 'input-block';
+      let buttonMinus = document.createElement('button');
+      buttonMinus.className = 'input-minus button cursor-pointer user-select';
+      let buttonPlus = document.createElement('button');
+      buttonPlus.className = 'input-plus button cursor-pointer user-select';
+      buttonMinus.addEventListener('click', stepDown);
+      buttonPlus.addEventListener('click', stepUp);
+      inputOrder.className = 'orders';
+      inputOrder.type = 'number';
+      inputOrder.min = '1';
+      inputOrder.max = '99';
+      inputOrder.maxLength = '2';
+      inputOrder.minLength = '1';
+      inputOrder.value = 0;
+      inputOrder.innerText = 0;
+      inputOrder.readOnly = 'readonly';
+      inputOrder.oninput = function() {
+        this.value = this.value.substr(0, 2);
+      }
+      function stepDown() {
+        if (inputOrder.value >= 2) {
+          inputOrder.value = --inputOrder.value;
+          updatePrice();
+        }
+      }
+      function stepUp() {
+        if (inputOrder.value <= 98) {
+          inputOrder.value = ++inputOrder.value;
+          updatePrice();
+        }
+      }
+      function updatePrice() {
+        let count = 0;
+        const carts = cardsOrder.querySelectorAll('.card');
+        carts.forEach(function(element) {
+          const priceElement = element.querySelector('.card-price');
+          const inputsElement = element.querySelector('.orders');
+          const summ = inputsElement.value * Number(priceElement.innerText.slice(1));
+          count += summ;
+        })
+        total.innerText = `Total: ${parseFloat(count).toFixed(2)}$`;
+      }
+      cardDiv.addEventListener('dragstart', dragstart);
+      function dragstart() {
+        sectionSecond.classList.add('dragged');
+        cartTitle.style.color = '#e03b3b';
+        cartTitle.innerHTML = 'Drop book here!';
+        cardOrder.style.borderColor = '#e03b3b';
+        cardOrderTitle.classList.add('redtext');
+        cardOrderDescription.classList.add('redtext');
+        cardOrderPrice.classList.add('redtext');
+        inputOrder.classList.add('redtext');
+        inputOrder.style.borderColor = '#e03b3b';
+        buttonMinus.style.borderColor = '#e03b3b';
+        buttonPlus.style.borderColor = '#e03b3b';
+        buttonMinus.style.setProperty('--color-blacky', '#e03b3b');
+        buttonPlus.style.setProperty('--color-blacky', '#e03b3b');
+      }
+      cardDiv.addEventListener('dragend', (startsElement) => {
+        cartTitle.style.color = '#ffffff';
+        cartTitle.innerHTML = 'Your order';
+        cardOrder.style.borderColor = '#0000004d';
+        sectionSecond.classList.remove('dragged');
+        cardOrderTitle.classList.remove('redtext');
+        cardOrderDescription.classList.remove('redtext');
+        cardOrderPrice.classList.remove('redtext');
+        inputOrder.classList.remove('redtext');
+        inputOrder.style.borderColor = '#0000004d';
+        buttonMinus.style.borderColor = '#0000004d';
+        buttonPlus.style.borderColor = '#0000004d';
+        buttonMinus.style.removeProperty('--color-blacky', '#e03b3b');
+        buttonPlus.style.removeProperty('--color-blacky', '#e03b3b');
+        let targetZone = null;
+        cardDiv.style.hidden = true;
+        let selectedSection = document.elementFromPoint(startsElement.clientX, startsElement.clientY);
+        cardDiv.style.hidden = false;
+        if (!selectedSection) return;
+        const dropZone = selectedSection.closest('.section__order');
+        if (targetZone != dropZone) {
+          targetZone = dropZone;
+          if (targetZone) {
+            addToCart();
+            targetZone = null;
+            sectionSecond.classList.remove('dragged');
+            cartTitle.style.color = '#ffffff';
+            cartTitle.innerHTML = 'Your order';
+            cardOrder.style.borderColor = '#0000004d';
+            cardOrderTitle.classList.remove('redtext');
+            cardOrderDescription.classList.remove('redtext');
+            cardOrderPrice.classList.remove('redtext');
+            inputOrder.classList.remove('redtext');
+            inputOrder.style.borderColor = '#0000004d';
+            buttonMinus.style.borderColor = '#0000004d';
+            buttonPlus.style.borderColor = '#0000004d';
+            buttonMinus.style.removeProperty('--color-blacky', '#e03b3b');
+            buttonPlus.style.removeProperty('--color-blacky', '#e03b3b');
+          }
+        }
+      });
+      sectionSecond.addEventListener(`dragover`, (event) => {event.preventDefault();});
+
+      let fullTrash = document.createElement('img');
+      fullTrash.className = 'full-trash cursor-pointer user-select';
+      fullTrash.src = '../img/close.png';
+      fullTrash.alt = '';
+      cardLinkSecond.addEventListener('click', addToCart);
+
+      function addToCart() {
+        inputOrder.value = ++inputOrder.value;
+        let fragmentAddCart = new DocumentFragment();
+        fragmentAddCart.appendChild(cardOrder);
+        cardOrder.appendChild(cardOrderImg);
+        cardOrder.appendChild(cardOrderMain);
+        cardOrderMain.appendChild(cardOrderTitle);
+        cardOrderMain.appendChild(cardOrderDescription);
+        cardOrderMain.appendChild(cardOrderPriceBlock);
+        cardOrderPriceBlock.appendChild(inputBlock);
+        inputBlock.appendChild(buttonMinus);
+        inputBlock.appendChild(inputOrder);
+        inputBlock.appendChild(buttonPlus);
+        cardOrderPriceBlock.appendChild(cardOrderPrice);
+        cardOrderMain.appendChild(fullTrash);
+        cardsOrder.appendChild(fragmentAddCart);
+
+        cardOrderTitle.innerText = element.author;
+        cardOrderImg.src = element.imageLink;
+        cardOrderDescription.innerText = element.title;
+        cardOrderPrice.innerText = `$${element.price}`;
+
+        hr.style.visibility = 'visible';
+        buttonOrder.style.visibility = 'visible';
+        total.style.visibility = 'visible';
+
+        updatePrice();
+
+        fullTrash.addEventListener('click', closeTrash);
+        function closeTrash(e) {
+          e.target.parentNode.parentNode.remove();
+          updatePrice();
+          inputOrder.value = 0;
+          setTimeout(function() {
+            if (cardsOrder.childNodes.length == 0) {
+              hr.style.visibility = 'hidden';
+              buttonOrder.style.visibility = 'hidden';
+              total.style.visibility = 'hidden';
+            }
+          }, 3000);
+        }    
+      }
+
+      linkInfo.addEventListener('click', openModal);
+      function openModal() {
+        let shadow = document.createElement('div');
+        shadow.className = 'shadow';
+        let modalWindow = document.createElement('div');
+        modalWindow.className = 'modal';
+        setTimeout(function() {
+          modalWindow.className = 'modal move';
+        }, 10);
+        shadow.classList.toggle('visible');
+        header.classList.toggle('blur');
+        main.classList.toggle('blur');
+        footer.classList.toggle('blur');
+        let cardTitle = document.createElement('h2');
+        cardTitle.className = 'card-title';
+        cardTitle.style.textTransform = 'uppercase';
+        cardTitle.innerText = element.author;
+        let cardImg = document.createElement('img');
+        cardImg.className = 'card-img';
+        cardImg.id = 'imageLink';
+        cardImg.alt = '';
+        cardImg.src = element.imageLink;
+        let modalBlock = document.createElement('div');
+        modalBlock.className = 'modal-block';
+        let modalBlockInfo = document.createElement('div');
+        modalBlockInfo.className = 'modal-block__info';
+        let priceBlock = document.createElement('div');
+        priceBlock.className = 'modal__price-block';
+        let cardPrice = document.createElement('p');
+        cardPrice.className = 'card-price';
+        cardPrice.id = 'price';
+        cardPrice.innerText = `$${element.price}`;
+        let buyCart = document.createElement('p');
+        buyCart.className = 'buy-cart cursor-pointer user-select';
+        buyCart.innerText = 'Add to cart';
+        buyCart.addEventListener('click', addToCart);
+        let descriptionInfo = document.createElement('p');
+        descriptionInfo.className = 'description';
+        descriptionInfo.innerText = element.description;
+        let imageCancel = document.createElement('img');
+        imageCancel.className = 'cancel cursor-pointer user-select';
+        imageCancel.src = '../img/close.png';
+        rootBlock.style.overflow = 'hidden';
+        imageCancel.addEventListener('click', closeModal);
+        function closeModal() {
+          shadow.remove();
+          modalWindow.remove();
+          shadow.classList.toggle('visible');
+          header.classList.toggle('blur');
+          main.classList.toggle('blur');
+          footer.classList.toggle('blur');
+          rootBlock.style.overflow = 'visible';
+        }
+        let fragmentShadow = new DocumentFragment();
+        fragmentShadow.appendChild(shadow);
+        rootBlock.prepend(fragmentShadow);
+
+        let fragmentModal = new DocumentFragment();
+        fragmentModal.appendChild(modalWindow);
+        modalWindow.appendChild(cardImg);
+        modalWindow.appendChild(modalBlock);
+        modalBlock.appendChild(modalBlockInfo);
+        modalBlockInfo.appendChild(cardTitle);
+        modalBlockInfo.appendChild(descriptionInfo);
+        modalBlock.appendChild(priceBlock);
+        priceBlock.appendChild(cardPrice);
+        priceBlock.appendChild(buyCart);
+        modalWindow.appendChild(imageCancel);
+        rootBlock.prepend(fragmentModal);
+      }
+    });
+   });
