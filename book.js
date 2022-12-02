@@ -15,7 +15,7 @@
   const buttonOrder = document.createElement('button');
   let total = document.createElement('h5');
   let counter = 0;
-  
+
   let fragmentBody = new DocumentFragment();
   fragmentBody.appendChild(header);
   fragmentBody.appendChild(main);
@@ -31,7 +31,7 @@
   sectionFirst.appendChild(cardsDiv);
   fragmentBody.appendChild(footer);
   rootBlock.appendChild(fragmentBody);
-  
+
   header.classList.add('header');
   main.className = 'main main-page';
   footer.classList.add('footer');
@@ -44,23 +44,23 @@
   cardsDiv.className = 'cards';
   cardsOrder.className = 'cards';
   hr.className = 'hr';
-  buttonOrder.className = 'order__button cursor-pointer user-select';
+  buttonOrder.className = 'order__button';
   buttonOrder.innerText = 'Add card';
-  
+
   let headerContainer = document.createElement('div');
-  headerContainer.className = 'container header__container header__main-page';
+  headerContainer.className = 'container header__container';
   let titleMain = document.createElement('h1');
   titleMain.className = 'title';
   titleMain.innerText = 'Welcome to amazing book-hop';
   let logoMain = document.createElement('div');
-logoMain.className = 'logo';
-  
+  logoMain.className = 'logo';
+
 let fragmentHeader = new DocumentFragment();
 fragmentHeader.appendChild(headerContainer);
 headerContainer.appendChild(logoMain);
 logoMain.appendChild(titleMain);
 header.appendChild(fragmentHeader);
-  
+
   let copyright = document.createElement('div');
   copyright.className = 'copyright';
   let copyrightText = document.createElement('p');
@@ -73,7 +73,7 @@ header.appendChild(fragmentHeader);
   let copyrightMark = document.createElement('p');
   copyrightMark.className = 'copyright__text';
   copyrightMark.innerText = `© 2022`;
-  
+
   let fragmentFooter = new DocumentFragment();
   fragmentFooter.appendChild(copyright);
   copyright.appendChild(copyrightText);
@@ -105,7 +105,7 @@ fetch('books.json', { mode: 'no-cors' })
       cardLink.className = 'card-link';
       let linkInfo = document.createElement('h5');
       linkInfo.className = 'link-info cursor-pointer user-select';
-      linkInfo.innerText = 'Show more';
+      linkInfo.innerText = 'more...';
       linkInfo.style.textTransform = 'uppercase';
       let priceBlock = document.createElement('div');
       priceBlock.className = 'price-block';
@@ -116,7 +116,7 @@ fetch('books.json', { mode: 'no-cors' })
       cardLinkSecond.className = 'card__link cursor-pointer user-select';
       let cardImgSecond = document.createElement('img');
       cardImgSecond.className = 'card-img';
-      cardImgSecond.src = '../img/2089348.png`';
+      cardImgSecond.src = '../img/2089348.png';
       cardImgSecond.alt = '';
 
       let cardTextBlock = document.createElement('div');
@@ -187,7 +187,7 @@ fetch('books.json', { mode: 'no-cors' })
         }
       }
       function stepUp() {
-        if (inputOrder.value <= 98) {
+        if (inputOrder.value <= 2) {
           inputOrder.value = ++inputOrder.value;
           updatePrice();
         }
@@ -203,64 +203,6 @@ fetch('books.json', { mode: 'no-cors' })
         })
         total.innerText = `Total: ${parseFloat(count).toFixed(2)}$`;
       }
-      cardDiv.addEventListener('dragstart', dragstart);
-      function dragstart() {
-        sectionSecond.classList.add('dragged');
-        cartTitle.style.color = '#e03b3b';
-        cartTitle.innerHTML = 'Drop book here!';
-        cardOrder.style.borderColor = '#e03b3b';
-        cardOrderTitle.classList.add('redtext');
-        cardOrderDescription.classList.add('redtext');
-        cardOrderPrice.classList.add('redtext');
-        inputOrder.classList.add('redtext');
-        inputOrder.style.borderColor = '#e03b3b';
-        buttonMinus.style.borderColor = '#e03b3b';
-        buttonPlus.style.borderColor = '#e03b3b';
-        buttonMinus.style.setProperty('--color-blacky', '#e03b3b');
-        buttonPlus.style.setProperty('--color-blacky', '#e03b3b');
-      }
-      cardDiv.addEventListener('dragend', (startsElement) => {
-        cartTitle.style.color = '#ffffff';
-        cartTitle.innerHTML = 'Your order';
-        cardOrder.style.borderColor = '#0000004d';
-        sectionSecond.classList.remove('dragged');
-        cardOrderTitle.classList.remove('redtext');
-        cardOrderDescription.classList.remove('redtext');
-        cardOrderPrice.classList.remove('redtext');
-        inputOrder.classList.remove('redtext');
-        inputOrder.style.borderColor = '#0000004d';
-        buttonMinus.style.borderColor = '#0000004d';
-        buttonPlus.style.borderColor = '#0000004d';
-        buttonMinus.style.removeProperty('--color-blacky', '#e03b3b');
-        buttonPlus.style.removeProperty('--color-blacky', '#e03b3b');
-        let targetZone = null;
-        cardDiv.style.hidden = true;
-        let selectedSection = document.elementFromPoint(startsElement.clientX, startsElement.clientY);
-        cardDiv.style.hidden = false;
-        if (!selectedSection) return;
-        const dropZone = selectedSection.closest('.section__order');
-        if (targetZone != dropZone) {
-          targetZone = dropZone;
-          if (targetZone) {
-            addToCart();
-            targetZone = null;
-            sectionSecond.classList.remove('dragged');
-            cartTitle.style.color = '#ffffff';
-            cartTitle.innerHTML = 'Your order';
-            cardOrder.style.borderColor = '#0000004d';
-            cardOrderTitle.classList.remove('redtext');
-            cardOrderDescription.classList.remove('redtext');
-            cardOrderPrice.classList.remove('redtext');
-            inputOrder.classList.remove('redtext');
-            inputOrder.style.borderColor = '#0000004d';
-            buttonMinus.style.borderColor = '#0000004d';
-            buttonPlus.style.borderColor = '#0000004d';
-            buttonMinus.style.removeProperty('--color-blacky', '#e03b3b');
-            buttonPlus.style.removeProperty('--color-blacky', '#e03b3b');
-          }
-        }
-      });
-      sectionSecond.addEventListener(`dragover`, (event) => {event.preventDefault();});
 
       let fullTrash = document.createElement('img');
       fullTrash.className = 'full-trash cursor-pointer user-select';
@@ -308,7 +250,7 @@ fetch('books.json', { mode: 'no-cors' })
               total.style.visibility = 'hidden';
             }
           }, 3000);
-        }    
+        }
       }
 
       linkInfo.addEventListener('click', openModal);
@@ -364,22 +306,6 @@ fetch('books.json', { mode: 'no-cors' })
           footer.classList.toggle('blur');
           rootBlock.style.overflow = 'visible';
         }
-        let fragmentShadow = new DocumentFragment();
-        fragmentShadow.appendChild(shadow);
-        rootBlock.prepend(fragmentShadow);
-
-        let fragmentModal = new DocumentFragment();
-        fragmentModal.appendChild(modalWindow);
-        modalWindow.appendChild(cardImg);
-        modalWindow.appendChild(modalBlock);
-        modalBlock.appendChild(modalBlockInfo);
-        modalBlockInfo.appendChild(cardTitle);
-        modalBlockInfo.appendChild(descriptionInfo);
-        modalBlock.appendChild(priceBlock);
-        priceBlock.appendChild(cardPrice);
-        priceBlock.appendChild(buyCart);
-        modalWindow.appendChild(imageCancel);
-        rootBlock.prepend(fragmentModal);
       }
     });
    });

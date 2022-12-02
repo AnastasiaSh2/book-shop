@@ -38,9 +38,6 @@
     margin: 0 auto;
   }
 
-  .main-page {
-    max-width: 1200px;
-  }
 body {
     background-image: url(../img/1616569191_2-p-fon-literatura-3.jpg);
     background-repeat: no-repeat;
@@ -137,4 +134,19 @@ body {
     width: 20px;
     height: 20px;
   }
-  
+  .section__order .cart-title {
+    font-size: 48px;
+    color: var(--color-white);
+    font-weight: 300;
+  }
+  .section__order .order__button {
+    border: none;
+    outline: none;
+    padding: 10px 25px;
+    background: #ae70b8;
+    color: #ffffff;
+    border-radius: 2px;
+    font-size: 19px;
+    font-weight: 300;
+    visibility: hidden;
+  }
