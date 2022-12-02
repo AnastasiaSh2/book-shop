@@ -95,7 +95,7 @@ fetch('books.json', { mode: 'no-cors' })
       cardTitle.className = 'card-title';
       cardTitle.id = 'author';
       let cardImg = document.createElement('img');
-      cardImg.className = 'card-img cursor-pointer';
+      cardImg.className = 'card-img';
       cardImg.id = 'imageLink';
       cardImg.alt = '';
       let cardSubtitle = document.createElement('h3');
@@ -104,7 +104,7 @@ fetch('books.json', { mode: 'no-cors' })
       let cardLink = document.createElement('a');
       cardLink.className = 'card-link';
       let linkInfo = document.createElement('h5');
-      linkInfo.className = 'link-info cursor-pointer user-select';
+      linkInfo.className = 'link-info';
       linkInfo.innerText = 'more...';
       linkInfo.style.textTransform = 'uppercase';
       let priceBlock = document.createElement('div');
@@ -113,7 +113,7 @@ fetch('books.json', { mode: 'no-cors' })
       cardPrice.className = 'card-price';
       cardPrice.id = 'price';
       let cardLinkSecond = document.createElement('a');
-      cardLinkSecond.className = 'card__link cursor-pointer user-select';
+      cardLinkSecond.className = 'card__link';
       let cardImgSecond = document.createElement('img');
       cardImgSecond.className = 'card-img';
       cardImgSecond.src = '../img/2089348.png';
@@ -163,9 +163,9 @@ fetch('books.json', { mode: 'no-cors' })
       let inputBlock = document.createElement('div');
       inputBlock.className = 'input-block';
       let buttonMinus = document.createElement('button');
-      buttonMinus.className = 'input-minus button cursor-pointer user-select';
+      buttonMinus.className = 'input-minus button';
       let buttonPlus = document.createElement('button');
-      buttonPlus.className = 'input-plus button cursor-pointer user-select';
+      buttonPlus.className = 'input-plus button';
       buttonMinus.addEventListener('click', stepDown);
       buttonPlus.addEventListener('click', stepUp);
       inputOrder.className = 'orders';
@@ -205,7 +205,7 @@ fetch('books.json', { mode: 'no-cors' })
       }
 
       let fullTrash = document.createElement('img');
-      fullTrash.className = 'full-trash cursor-pointer user-select';
+      fullTrash.className = 'full-trash';
       fullTrash.src = '../img/close.png';
       fullTrash.alt = '';
       cardLinkSecond.addEventListener('click', addToCart);
@@ -286,14 +286,14 @@ fetch('books.json', { mode: 'no-cors' })
         cardPrice.id = 'price';
         cardPrice.innerText = `$${element.price}`;
         let buyCart = document.createElement('p');
-        buyCart.className = 'buy-cart cursor-pointer user-select';
+        buyCart.className = 'buy-cart ';
         buyCart.innerText = 'Add to cart';
         buyCart.addEventListener('click', addToCart);
         let descriptionInfo = document.createElement('p');
         descriptionInfo.className = 'description';
         descriptionInfo.innerText = element.description;
         let imageCancel = document.createElement('img');
-        imageCancel.className = 'cancel cursor-pointer user-select';
+        imageCancel.className = 'cancel';
         imageCancel.src = '../img/close.png';
         rootBlock.style.overflow = 'hidden';
         imageCancel.addEventListener('click', closeModal);
