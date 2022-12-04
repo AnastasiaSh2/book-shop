@@ -136,7 +136,6 @@ body {
   }
   .section__order .cart-title {
     font-size: 48px;
-    color: var(--color-white);
     font-weight: 300;
   }
   .section__order .order__button {

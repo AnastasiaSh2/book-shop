@@ -116,7 +116,7 @@ fetch('books.json', { mode: 'no-cors' })
       cardLinkSecond.className = 'card__link';
       let cardImgSecond = document.createElement('img');
       cardImgSecond.className = 'card-img';
-      cardImgSecond.src = '../img/2089348.png';
+      cardImgSecond.src = '/img/2089348.png';
       cardImgSecond.alt = '';
 
       let cardTextBlock = document.createElement('div');
@@ -206,7 +206,7 @@ fetch('books.json', { mode: 'no-cors' })
 
       let fullTrash = document.createElement('img');
       fullTrash.className = 'full-trash';
-      fullTrash.src = '../img/close.png';
+      fullTrash.src = '/img/close.png';
       fullTrash.alt = '';
       cardLinkSecond.addEventListener('click', addToCart);
 
@@ -294,7 +294,7 @@ fetch('books.json', { mode: 'no-cors' })
         descriptionInfo.innerText = element.description;
         let imageCancel = document.createElement('img');
         imageCancel.className = 'cancel';
-        imageCancel.src = '../img/close.png';
+        imageCancel.src = '/img/close.png';
         rootBlock.style.overflow = 'hidden';
         imageCancel.addEventListener('click', closeModal);
         function closeModal() {
